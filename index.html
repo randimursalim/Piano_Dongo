@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    button {
+      background-color: crimson;
+      height: 100px;
+      width: 80px;
+      color: #eaeaea;
+      margin: 0.3rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #f20202;
+      transition: 0.3s ease-in-out;
+    }
+  </style>
+  <body>
+    <h3>PianoDongo</h3>
+    <div id="note"></div>
+
+    <script>
+      const chords = ["a", "c", "d", "e", "f"];
+      const note = document.getElementById("note");
+
+      chords.forEach((chord) => {
+        const button = document.createElement("button");
+        button.innerText = chord;
+        button.addEventListener("click", () => {
+          const sound = new Audio(`/assets/${chord}.wav`);
+          sound.play();
+        });
+        note.appendChild(button);
+      });
+    </script>
+  </body>
+</html>
